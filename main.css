@@ -1,36 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* MAIN */
+
 :root {
-    --pink: #ff3299;
-    --black: #191817;
     --white: #efefef;
-    --back: #363636;
+    --black: #363636;
     --box-green: #46e8c1;
     --signal: #ff654d;
+    --turqoise: #137f7c;
+    --grey: #d8d8d8;
+}
+
+* {
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0 auto;
     box-sizing: border-box;
-    scroll-behavior: smooth;
     font-size: 62.5%;
     font-family: 'Jost', sans-serif;
     height: 100vh;
     width: 100vw;
-    background-color: var(--back);
+    background-color: var(--black);
 }
 
 header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     position: absolute;
     width: 100vw;
-    padding: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    gap: 8em;
+    z-index: 1;
 }
+
+/* MAIN */
+
+/* NAV */
 
 .nav-links, nav-links:visited {
     cursor: pointer;
-    color: var(--box-green);
+    color: var(--white);
     font-size: 1.6rem;
     font-weight: 700;
     text-decoration: none;
@@ -41,149 +53,666 @@ header {
 }
 
 a:hover {
-    background-color: var(--box-green);
+    background-color: var(--white);
     color: var(--black);
     padding-left: 0.4em;
     padding-right: 0.4em;
 }
 
-a:active {
-    background-color: var(--box-green);
-    color: var(--black);
-    padding-left: 0.4em;
-    padding-right: 0.4em;
+/* NAV */
+
+/* ALBUM */
+
+.album-header {
+    display: none;
 }
 
 .main-cnt {
     display: flex;
     align-items: center;
-    background-repeat: no-repeat;
-    background-position: center;
+    justify-content: flex-start;
+    z-index: 30;
 }
 
 .logo {
-    max-height: 100vh;
-    position: sticky;
-    left: 0;
-    opacity: 55%;
-    animation: fadeBlock 610ms ease-out;
+    height: 100vh;
+    /* opacity: 55%; */
+    z-index: 20;
+}
+
+.logo-cnt {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .layer-tangle {
+    display: flex;
     position: absolute;
-    width: 90vw;
+    right: 0px;
+    width: 80vw;
     height: 40vh;
     background-color: var(--white);
     transform: rotate(-6deg);
-    right: -200px;
     opacity: 11%;
-    animation: tangleBlock 700ms linear;
+    z-index: 3;
+    overflow: hidden;
 }
 
 .square {
-    position: absolute;
-    top: 33vh;
-    left: 23vw;
+    display: flex;
     width: 400px;
     height: 400px;
     border: 2em solid var(--white);
     opacity: 100%;
-    animation: mainBlock 700ms linear;
+    z-index: 4;
 }
 
 .cover-album {
-    max-width: 100%;
+    display: flex;
+    justify-content: center;
     opacity: 100%;
-    animation: mainBlock 700ms linear;
 }
 
 .album-title {
-    position: absolute;
+    display: flex;
     letter-spacing: 0.2em;
-    top: 27vh;
-    right: 25vw;
+    font-weight: 700;
+    font-style: italic;
     color: var(--white);
     text-transform: uppercase;
-    font-size: 2rem;
+    font-size: 2.9rem;
     background-color: var(--signal);
     padding: 0.5em;
-    animation: sweepBlock 700ms linear;
+    margin-bottom: 0.6em;
+    z-index: 4;
 }
 
-.tracklist {
+.tracklist-cnt {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 39vh;
-    right: 55vh;
+    margin: 3em;
+    z-index: 4;
+}
+
+.tracks {
+    /* display: flex; */
+    padding: 0.3em;
+    /* width: 20vw; */
     text-transform: uppercase;
     line-height: 1.9em;
     letter-spacing: 0.2em;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     color: var(--white);
-    animation: downBlock 700ms linear;
     cursor: pointer;
+    z-index: 4;
 }
 
-@keyframes mainBlock {
-	0% {
-        left: -30px;
-		opacity: 0%;
-        transform: rotate(45deg);
-	}
-	100% {
-		opacity: 100%;
-        transform: rotate(0deg);
-	}
+.tracks:hover {
+    color: var(--signal);
+    /* background-color: var(--black); */
 }
 
-@keyframes tangleBlock {
-    0% {
-        width: 0%;
-        transform: rotate(-45deg);
+/* ALBUM */
+
+/* SHOP */
+
+.shop-cnt {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--black);
+    gap: 2em;
+}
+
+.shop-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.9rem;
+    font-weight: 700;
+    color: var(--box-green);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 1.5em;
+}
+
+.album-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.lp-cnt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    background-color: var(--white);
+    padding: 1em;
+}
+
+.lp-info {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    text-transform: uppercase;
+
+}
+
+.cover-one {
+    width: 40%;
+}
+
+.cover-two {
+    width: 40%;
+}
+
+.lp-info {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.krlks-info-one {
+    font-size: 1.8rem;
+    font-style: italic;
+    background-color: var(--box-green);
+    color: var(--black);
+    width: 20.5vw;
+    padding: 0.2em;
+}
+
+.krlks-info {
+    font-size: 1.1rem;
+    color: var(--white)
+}
+
+.buy-btn {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    padding: 0.2em;
+    background-color: var(--signal);
+    color: var(--white);
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    padding: 0.5em;
+}
+
+.acqua-cnt {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.aqua-frame {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.aqua-info-cnt {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.aqua-info-one {
+    font-size: 1.8rem;
+    font-style: italic;
+    background-color: var(--box-green);
+    color: var(--black);
+    width: 12vw;
+    padding: 0.2em;
+}
+
+.aqua-info-cnt {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    text-transform: uppercase;
+}
+
+.aqua-info {
+    font-size: 1.1rem;
+    color: var(--white)
+}
+
+.parfym-cnt {
+    display: flex;
+    justify-content: flex-start;
+    width: 20vw;
+    background-color: var(--white);
+    /* padding: 1em; */
+}
+
+.aqua-img {
+    width: 50%;
+}
+
+/* SHOP */
+
+/* CONTACT */
+
+.contact-cnt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
+    width: 100vw;
+    height: 85vh;
+}
+
+.kontakt-title {
+    font-size: 2.9rem;
+    color: var(--box-green);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin: 1.5em;
+}
+
+.con-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 33vw;
+    gap: 0.8em;
+}
+
+.con-input {
+    outline-style: none;
+    padding: 0.4em;
+    border: 2px solid var(--box-green);
+    font-size: 1.1rem;
+    /* width: 32vw; */
+}
+
+.con-area {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.1rem;
+    outline-style: none;
+    border: 2px solid var(--box-green);
+    resize: none;
+}
+
+.btn-cnt {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.send-btn {
+    justify-content: center;
+    background-color: var(--signal);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border: none;
+    padding: 0.5em;
+    width: 10vw;
+    
+}
+
+
+
+/* CONTACT */
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    background-color: var(--white);
+}
+
+.yamamo {
+    display: flex;
+    font-size: 2.9rem;
+    font-weight: 700;
+    font-style: italic;
+    background-color: var(--signal);
+    color: var(--white);
+    text-transform: uppercase;
+    padding: 0.2em;
+}
+
+/* FOOTER */
+
+@media (max-width: 1024px){
+    header {
+        position: relative;
+        padding: 0;
+        margin-top: 2em;
+        margin-bottom: 2em;
     }
-    100% {
-        
-        transform: rotate(-6deg);
-    }
-}
 
-@keyframes sweepBlock {
-    0% {
-        letter-spacing: 2em;
-        opacity: -100%;
-		top: -20vh;
-		
-	}
-    /* 50% {
-        letter-spacing: -2em;
-    } */
-    100% {
+    .album-header {
+        display: flex;
+        justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--box-green);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 1.5em;
+    }
+
+    .layer-tangle {
+        display: none;
+    }
+
+    .logo-cnt {
+        display: none;
+    }
+    .logo {
+        display: none;
+    }
+    .main-cnt {
+        /* width: 100vw; */
+        z-index: 0;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 3em;
+        margin-top: 21pt;
+    }
+
+    .shop-cnt {
+        height: auto;
+    }
+
+    .album-title {
+        font-size: 1.8rem;
+    }
+
+    .krlks-info-one, .aqua-info-one {
+        font-size: 1.1rem;
+    }
+
+    .krlks-info-one {
+        width: 22vw;
+    }
+
+    .buy-btn {
+        font-size: 0.8rem;
+    }
+
+    .aqua-info-one {
+        width: 12.5vw;
+    }
+
+    .tracklist-cnt {
+        margin: 0;
+    }
+
+    .tracks {
+        width: 30vw;
+        font-size: 0.8rem;
+    }
+
+    .square {
+        display: flex;
+        width: 300px;
+        height: 300px;
+    }
+
+    .lp-cnt {
+        width: 100vw;
+        padding: 0;
+    }
+
+    .lp-info {
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .cover-album {
+        display: flex;
+        justify-content: center;
         opacity: 100%;
-        top: 27vh;
+    }
+
+    .album-wrapper {
+        flex-direction: column;
+        /* justify-content: center;
+        align-items: center; */
+    }
+
+    .aqua-info-cnt {
+        text-align: center;
+        align-items: center;
+    }
+
+    .acqua-cnt {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .parfym-cnt {
+        justify-content: center;
+        background-color: var(--white);
+        width: 100vw;
+        padding: 0;
+    }
+
+    .aqua-img {
+        width: 20%;
+    }
+
+    .aqua-frame {
+        flex-direction:column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+    }
+
+    .shop-title {
+        font-size: 1.8rem;
+    }
+
+    .kontakt-title {
+        font-size: 1.8rem;
+    }
+
+    .send-btn {
+        font-size: 0.8rem;
+    }
+
+    .yamamo {
+        font-size: 1.8rem;
+    }
+
+    .con-form {
+        width: 70vw;
     }
 }
 
-@keyframes downBlock {
-    0% {
-        transform: rotate (180deg);
-        letter-spacing: -2em;
-        opacity: -100%;
-        top: 0vh;
+@media (max-width: 640px){
+    header {
+        position: relative;
+        padding: 0;
+        gap: 2em;
+        margin: 0;
+        margin-top: 2em;
+        margin-bottom: 2em;
     }
-    100% {
+
+    .nav-links {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    .square {
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        height: 250px;
+    }
+
+    .cover-album {
+        max-width: 100%;
+    }
+
+    .tracklist-cnt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .album-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--box-green);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 1.5em;
+    }
+
+    .layer-tangle {
+        display: none;
+    }
+
+    .logo-cnt {
+        display: none;
+    }
+    .logo {
+        display: none;
+    }
+    .main-cnt {
+        /* width: 100vw; */
+        flex-direction: column;
+        z-index: 0;
+        align-items: center;
+        justify-content: center;
+        gap: 3em;
+        margin-top: 21pt;
+    }
+
+    .shop-cnt {
+        height: auto;
+    }
+
+    .album-title {
+        font-size: 1.1rem;
+    }
+
+    .krlks-info-one, .aqua-info-one {
+        font-size: 1.1rem;
+    }
+
+    .krlks-info-one {
+        width: 40vw;
+    }
+
+    .buy-btn {
+        font-size: 0.8rem;
+        width: 10vw;
+        font-weight: 600;
+    }
+
+    .aqua-info-one {
+        width: 25vw;
+    }
+
+    .tracklist-cnt {
+        margin: 0;
+    }
+
+    .tracks {
+        width: 30vw;
+        font-size: 0.8rem;
+    }
+
+    .square {
+        display: flex;
+        width: 300px;
+        height: 300px;
+    }
+
+    .lp-cnt {
+        width: 100vw;
+        padding: 0;
+    }
+
+    .lp-info {
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .cover-album {
+        display: flex;
+        justify-content: center;
         opacity: 100%;
-        top: 39vh;
     }
-}
 
-@keyframes fadeBlock {
-    0% {
-        left: 230em;
-        opacity: -10%
+    .album-wrapper {
+        flex-direction: column;
+        /* justify-content: center;
+        align-items: center; */
     }
-    100% {
-        left: 0;
-        opacity: 55%;
+
+    .aqua-info-cnt {
+        text-align: center;
+        align-items: center;
+    }
+
+    .acqua-cnt {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .parfym-cnt {
+        justify-content: center;
+        background-color: var(--white);
+        width: 100vw;
+        padding: 0;
+    }
+
+    .aqua-img {
+        width: 20%;
+    }
+
+    .aqua-frame {
+        flex-direction:column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+    }
+
+    .shop-title {
+        font-size: 1.1rem;
+    }
+
+    .kontakt-title {
+        font-size: 1.1rem;
+    }
+
+    .send-btn {
+        font-size: 1.1rem;
+        width: 20vw;
+    }
+
+    .btn-cnt {
+        justify-content: center;
+    }
+
+    .yamamo {
+        font-size: 1.8rem;
+    }
+
+    .con-form {
+        width: 90vw;
     }
 }
